@@ -16,8 +16,10 @@ class Application extends Container {
     }
 
     public function run() {
-        $this->server = new \Swoole\Server($this->config['host']['ip'], $this->config['host']['port']);
-        $this->server->set($this->config['Server']);
+        $config = loadConfig('server');
+        var_dump($config);
+        $this->server = new \Swoole\Server($config['ip'], $config['port']);
+//        $this->server->set($this->config['Server']);
 
         $this->server->on('start', [$this, 'onStart']);
         $this->server->on('connect', [$this, 'onConnect']);
@@ -42,6 +44,7 @@ class Application extends Container {
      * @param $data
      */
     function onReceive($server, $fd, $reactor_id, $data) {
+
     }
 
     /**
