@@ -38,6 +38,10 @@ class Application extends Container {
 
     /**
      * 接收到数据时回调此函数，发生在worker进程中
+     * 思路：  1.检测路由注册。
+     *        2.容器根据控制器的类和方法反射，并获取注入依赖。
+     *        3。执行控制器方法
+     *
      * @param $server
      * @param $fd
      * @param $reactor_id
