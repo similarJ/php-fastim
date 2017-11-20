@@ -1,5 +1,5 @@
 {
-  "name": "similarJ/php-fastim",
+  "name": "similarj/php-fastim",
   "license": "Apache",
   "autoload": {
     "files": [
