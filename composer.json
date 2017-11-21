@@ -6,7 +6,10 @@
       "src/helper.php"
     ],
     "psr-4": {
-      "FastIM\\": "src/"
+      "FastIM\\Container": "src/container/",
+      "FastIM\\Contracts": "src/contracts/",
+      "FastIM\\Router": "src/router/",
+      "FastIM\\Server": "src/server/"
     }
   }
 }
