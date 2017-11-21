@@ -1,6 +1,6 @@
 <?php
 
-namespace Similarj\FastIM\Server;
+namespace FastIM\Server;
 
 use FastIM\Container\Container;
 
