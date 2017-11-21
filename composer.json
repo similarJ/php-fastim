@@ -1,0 +1,12 @@
+{
+  "name": "fastim",
+  "license": "Apache",
+  "autoload": {
+    "files": [
+      "src/helper.php"
+    ],
+    "psr-4": {
+      "FastIM\\": "src/"
+    }
+  }
+}
