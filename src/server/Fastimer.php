@@ -1,11 +1,11 @@
 <?php
 
-namespace FastIM\Server;
+namespace Similarj\FastIM\Server;
 
 use FastIM\Container\Container;
 
 class Fastimer extends Container {
-    const VERSION = '0.1';
+    const VERSION = '0.0.1';
     public $server = null;
 
     public function version() {
