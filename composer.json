@@ -1,5 +1,5 @@
 {
-  "name": "fastim",
+  "name": "fastim/im",
   "license": "Apache",
   "autoload": {
     "files": [
