@@ -617,6 +617,7 @@ class Container implements ArrayAccess, ContainerContract
     {
         $abstract = $this->getAlias($abstract);
 
+
         $needsContextualBuild = ! empty($parameters) || ! is_null(
             $this->getContextualConcrete($abstract)
         );
@@ -627,6 +628,7 @@ class Container implements ArrayAccess, ContainerContract
         if (isset($this->instances[$abstract]) && ! $needsContextualBuild) {
             return $this->instances[$abstract];
         }
+
 
         $this->with[] = $parameters;
 
@@ -789,9 +791,11 @@ class Container implements ArrayAccess, ContainerContract
         // Once we have all the constructor's parameters we can create each of the
         // dependency instances and then use the reflection instances to make a
         // new instance of this class, injecting the created dependencies in.
+
         $instances = $this->resolveDependencies(
             $dependencies
         );
+
 
         array_pop($this->buildStack);
 
@@ -812,6 +816,7 @@ class Container implements ArrayAccess, ContainerContract
             // If this dependency has a override for this particular build we will use
             // that instead as the value. Otherwise, we will continue with this run
             // of resolutions and let reflection attempt to determine the result.
+
             if ($this->hasParameterOverride($dependency)) {
                 $results[] = $this->getParameterOverride($dependency);
 
@@ -880,7 +885,6 @@ class Container implements ArrayAccess, ContainerContract
         if ($parameter->isDefaultValueAvailable()) {
             return $parameter->getDefaultValue();
         }
-
         $this->unresolvablePrimitive($parameter);
 
         return null; // for IDE

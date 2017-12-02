@@ -1,15 +1,27 @@
 {
   "name": "fastim/im",
+  "type": "library",
+  "description": "php swoole im framework",
+  "keywords": ["php", "swoole", "fastim", "im"],
+  "homepage": "https://github.com/similarJ/php-fastim/",
   "license": "Apache",
+  "authors": [
+    {
+      "name": "similar",
+      "homepage": "https://leslin.cn"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0"
+  },
   "autoload": {
-    "files": [
-      "src/helper.php"
-    ],
     "psr-4": {
-      "FastIM\\Container\\": "src/container/",
-      "FastIM\\Contracts\\": "src/contracts/",
-      "FastIM\\Router\\": "src/router/",
-      "FastIM\\Server\\": "src/server/"
+      "FastIM\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.0.1-dev"
     }
   }
 }

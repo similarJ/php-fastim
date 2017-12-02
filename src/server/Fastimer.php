@@ -2,22 +2,21 @@
 
 namespace FastIM\Server;
 
-use FastIM\Container\Container;
+use FastIM\Foundation\Application;
 
-class Fastimer extends Container {
-    const VERSION = '0.0.1';
+class Fastimer extends Application {
+
     public $server = null;
 
-    public function version() {
-        return static::VERSION;
+    public function __construct() {
+        parent::__construct();
     }
 
-    public function __construct() {
-    }
 
     public function run() {
         $config = loadConfig('server');
-        $this->server = new \Swoole\Server($config['ip'], $config['port']);
+//        $this->server = new \Swoole\Server($config['ip'], $config['port']);
+        $this->server = $this->make(\Swoole\Server::class, ['host'=>$config['ip'], 'port'=>$config['port'], 'mode'=>SWOOLE_PROCESS, 'sock_type'=>SWOOLE_SOCK_TCP]);
 //        $this->server->set($this->config['server']);
 
         $this->server->on('start', [$this, 'onStart']);
@@ -32,6 +31,7 @@ class Fastimer extends Container {
      * Server启动在主进程的主线程回调此函数
      */
     function onStart($server) {
+
         var_dump('start');
     }
 
@@ -47,6 +47,9 @@ class Fastimer extends Container {
      * @param $data
      */
     function onReceive($server, $fd, $reactor_id, $data) {
+        $json = json_decode($data);
+
+
         /**
          * check router
          */
